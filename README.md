@@ -25,7 +25,13 @@ ionic generate component country-detail-form
 sudo npm install firebase angularfire2 --save
 
 
+ionic link
+sudo npm install @ionic/app-scripts@latest @ionic/pro@latest
+ionic info
 ionic cordova platform add android
+ionic link --pro-id 0db67374
+cordova plugin add cordova-plugin-ionic --save --variable APP_ID="0db67374" --variable CHANNEL_NAME="Master" --variable UPDATE_METHOD="background"
+git push ionic master
 
 
 
