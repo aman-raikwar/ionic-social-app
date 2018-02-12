@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="box-container">
+    <div class="divider">Simple Login</div>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <button ion-button block round (click)="login('web')">
+      Login
+    </button>
+  </div>
+  <div class="box-container">
+    <div class="divider">Social Login</div>
+    <div class="social-buttons">
+      <button class="social-button" (click)="login('facebook')">
+        <img src="assets/imgs/facebook.png" />
+      </button>
+      <button class="social-button" (click)="login('google')">
+        <img src="assets/imgs/google-plus.png" />
+      </button>
+      <button class="social-button" (click)="login('github')">
+        <img src="assets/imgs/github.png" />
+      </button>
+    </div>
+  </div>
+  <div class="box-container">
+    <div class="divider">Login with Phone Number</div>
+    <div id="recaptcha-container"></div>
+    <ion-item>
+      <ion-label floating>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+    <button ion-button block round (click)="loginWithPhoneNumber(phoneNumber)">
+      Login
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+.toolbar-background-md, .toolbar-background-ios {
+    border-color: #ec407a;
+    background: #ec407a;
+}
+
+.toolbar-title-md, .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default, .toolbar-title-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {        
+    color: #fff;
+    // text-align: center;
+    text-transform: uppercase;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px 0;
+    font-size: 150%;
+    border-top: 1px solid #ec407a;
+    border-bottom: 1px solid #ec407a;
+    color: #ec407a;
+    margin-top: 0;
+}    
+
+.box-container {
+    margin-bottom: 30px;
+}
+
+.box-container:last-child {
+    margin-bottom: 0px;
+}
+
+.card-content-md {        
+    border-top: 1px solid #ccc;
+}
+
+.card-title-md, .card-md p {
+    text-align: center;
+}
+
+.button-md, .button-ios {
+    background: #ec407a;
+    height: 45px;
+}
