@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-register',
@@ -30,7 +30,7 @@ export class RegisterPage {
         this.reset();
         //this.updateProvideInfo(user);
         loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(TabsPage);
       }).catch(error => {
         // Handle Errors here.
         this.showError(error);

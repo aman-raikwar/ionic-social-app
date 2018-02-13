@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Photo</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="take-photo">
+    <img [src]="photo" />
+    <button ion-button block round (click)="takePhoto()">
+      <ion-icon name="camera"></ion-icon> &nbsp; Take Photo
+    </button>
+    <button ion-button block round (click)="getPhoto()">
+      <ion-icon name="images"></ion-icon> &nbsp; Get Photo
+    </button>
+  </div>
+</ion-content>

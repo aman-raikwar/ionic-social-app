@@ -1,17 +1,21 @@
 page-intro {
-    ion-footer {
-        text-align: center;
-    }
-    [ion-button] {     
-        min-width: 45%;
-    }
+  ion-footer {
+    text-align: center;
+  }
+  [ion-button] {
+    min-width: 45%;
+  }
 
-    .scroll-content {
-        display: flex;        
-        align-items: center;
-    }
+  .scroll-content {
+    display: flex;
+    align-items: center;
+  }
 
-    .scroll-content img{
-        width: 100%;
-    }
+  .scroll-content img {
+    width: 100%;
+  }
+
+  .content-md {
+    background: none;
+  }
 }

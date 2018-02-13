@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <img src="{{provider.profilePicture}}" />
+    <ion-card-content>
+      <ion-card-title>{{provider.name}}</ion-card-title>
+      <p>{{provider.email}}</p>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block round (click)="deleteAccount()">
+    <ion-icon name="trash"></ion-icon> &nbsp; Delete Account
+  </button>
+  <button ion-button block round (click)="logout()">
+    <ion-icon name="log-out"></ion-icon> &nbsp; Logout
+  </button>
+</ion-content>

@@ -7,12 +7,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { Camera } from '@ionic-native/camera';
+import { Contacts } from '@ionic-native/contacts';
 
 import { MyApp } from './app.component';
 import { IntroPage } from '../pages/intro/intro';
 import { HomePage } from '../pages/home/home';
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { PhotoPage } from '../pages/photo/photo';
+import { AccountPage } from '../pages/account/account';
+import { SettingsPage } from '../pages/settings/settings';
+import { TabsPage } from '../pages/tabs/tabs';
 
 Pro.init('0db67374', {
   appVersion: '0.0.1'
@@ -32,7 +40,7 @@ export class MyErrorHandler implements ErrorHandler {
   }
 
   handleError(err: any): void {
-    IonicPro.monitoring.handleNewError(err);
+    //IonicPro.monitoring.handleNewError(err);
     // Remove this if you want to disable Ionic's auto exception handling
     // in development mode.
     this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
@@ -44,12 +52,18 @@ export class MyErrorHandler implements ErrorHandler {
     MyApp,
     IntroPage,
     HomePage,
+    AboutPage,
+    ContactPage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    PhotoPage,
+    AccountPage,
+    SettingsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { tabsPlacement: 'top' }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
@@ -58,12 +72,20 @@ export class MyErrorHandler implements ErrorHandler {
     MyApp,
     IntroPage,
     HomePage,
+    AboutPage,
+    ContactPage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    PhotoPage,
+    AccountPage,
+    SettingsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    Contacts,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

@@ -3,7 +3,7 @@ import { NavController, NavParams, AlertController, LoadingController } from 'io
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -11,18 +11,18 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  email: string = '';
-  password: string = '';
-  public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
+  email: string = 'test@test.com';
+  password: string = '123456';
+  //public recaptchaVerifier: firebase.auth.RecaptchaVerifier;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef, public loadingCtrl: LoadingController, public alertCtrl: AlertController, private fire: AngularFireAuth) {
 
   }
 
   ionViewDidLoad() {
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      'size': 'invisible'
-    });
+    // this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+    //   'size': 'invisible'
+    // });
   }
 
   login(provider) {
@@ -47,7 +47,7 @@ export class LoginPage {
         this.reset();
         this.ref.detectChanges();
         loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(TabsPage);
       }).catch(error => {
         // Handle Errors here.
         this.showError(error);
@@ -57,7 +57,7 @@ export class LoginPage {
       this.fire.auth.signInWithPopup(signInProvider).then(res => {
         this.ref.detectChanges();
         loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(TabsPage);
       }).catch(error => {
         // Handle Errors here.
         this.showError(error);
@@ -83,43 +83,43 @@ export class LoginPage {
     this.password = '';
   }
 
-  loginWithPhoneNumber(phoneNumber: number) {
-    const appVerifier = this.recaptchaVerifier;
-    const phoneNumberString = "+" + phoneNumber;
+  // loginWithPhoneNumber(phoneNumber: number) {
+  //   const appVerifier = this.recaptchaVerifier;
+  //   const phoneNumberString = "+" + phoneNumber;
 
-    this.fire.auth.signInWithPhoneNumber(phoneNumberString, appVerifier)
-      .then(confirmationResult => {
-        // SMS sent. Prompt user to type the code from the message, then sign the
-        // user in with confirmationResult.confirm(code).
-        let prompt = this.alertCtrl.create({
-          title: 'Enter the Confirmation code',
-          inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
-          buttons: [
-            {
-              text: 'Cancel',
-              handler: data => { console.log('Cancel clicked'); }
-            },
-            {
-              text: 'Send',
-              handler: data => {
-                // Here we need to handle the confirmation code
-                confirmationResult.confirm(data.confirmationCode)
-                  .then(function (result) {
-                    // User signed in successfully.
-                    console.log(result.user);
-                  }).catch(function (error) {
-                    // User couldn't sign in (bad verification code?)                    
-                  });
-              }
-            }
-          ]
-        });
-        prompt.present();
-      })
-      .catch(function (error) {
-        this.showError(error);
-        console.error("SMS not sent", error);
-      });
-  }
+  //   this.fire.auth.signInWithPhoneNumber(phoneNumberString, appVerifier)
+  //     .then(confirmationResult => {
+  //       // SMS sent. Prompt user to type the code from the message, then sign the
+  //       // user in with confirmationResult.confirm(code).
+  //       let prompt = this.alertCtrl.create({
+  //         title: 'Enter the Confirmation code',
+  //         inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+  //         buttons: [
+  //           {
+  //             text: 'Cancel',
+  //             handler: data => { console.log('Cancel clicked'); }
+  //           },
+  //           {
+  //             text: 'Send',
+  //             handler: data => {
+  //               // Here we need to handle the confirmation code
+  //               confirmationResult.confirm(data.confirmationCode)
+  //                 .then(function (result) {
+  //                   // User signed in successfully.
+  //                   console.log(result.user);
+  //                 }).catch(function (error) {
+  //                   // User couldn't sign in (bad verification code?)                    
+  //                 });
+  //             }
+  //           }
+  //         ]
+  //       });
+  //       prompt.present();
+  //     })
+  //     .catch(function (error) {
+  //       this.showError(error);
+  //       console.error("SMS not sent", error);
+  //     });
+  // }
 
 }
